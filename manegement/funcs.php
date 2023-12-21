@@ -4,9 +4,17 @@
   }
 
   function img_tag($code) {
-    if (file_exists("../images/$code.gif")) $name = $code;
-    else $name = 'noimage';
-    return '<img src="../images/' . $name . '.gif" alt="" width="200px">';
-  }
+    $imagePath = "../images/$code.gif";
+    
+    if (file_exists($imagePath)) {
+        $name = $code;
+    } else {
+        $name = 'noimage';
+        $imagePath = "../images/$name.jpg";
+    }
+    
+    return '<img src="' . $imagePath . '" alt="' . $name . '" width="200px">';
+}
+
 
 ?>
