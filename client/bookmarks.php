@@ -1,8 +1,8 @@
 <?php
   require 'funcs.php';
   $pdo = connect();
-  $st = $pdo->query("SELECT * FROM bookmark");
-  $bookmark = $st->fetchAll();
+  $st = $pdo->query("SELECT * FROM bookmarks");
+  $bookmarks = $st->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -17,22 +17,22 @@
 <h1>お気に入り</h1>
   <div>
   <a href="index.php">お買い物に戻る</a>
-  <a href="parchased.php">購入履歴</a>
+  <a href="parchaseds.php">購入履歴</a>
   </div>
 </div>
 
 <?php
-for ($i = 0; $i < count($bookmark); $i++) {
+for ($i = 0; $i < count($bookmarks); $i++) {
   // 3項目ごとに新しい行を開く
   if ($i % 5 == 0) {
     echo '<div class="clearfix">';
   }
   ?>
   <div class="content">
-    <?php echo img_tag($bookmark[$i]['code']) ?>
-    <p class="goods"><?php echo $bookmark[$i]['name'] ?></p>
-    <p><?php echo nl2br($bookmark[$i]['comment']) ?></p>
-    <p><?php echo $bookmark[$i]['price'] ?> 円</p>
+    <?php echo img_tag($bookmarks[$i]['code']) ?>
+    <p class="goods"><?php echo $bookmarks[$i]['name'] ?></p>
+    <p><?php echo nl2br($bookmarks[$i]['comment']) ?></p>
+    <p><?php echo $bookmarks[$i]['price'] ?> 円</p>
     <form action="cart.php" method="post">
       <select name="num">
         <?php
@@ -41,14 +41,14 @@ for ($i = 0; $i < count($bookmark); $i++) {
         }
         ?>
       </select>
-      <input type="hidden" name="code" value="<?php echo $bookmark[$i]['code'] ?>">
+      <input type="hidden" name="code" value="<?php echo $bookmarks[$i]['code'] ?>">
       <input type="submit" name="submit" value="カートへ">
       <img src="../images/bookmark_no.jpeg" alt="ブックマーク未" height="24px">
     </form>
   </div>
   <?php
   // 3項目ごとに行を閉じる
-  if (($i + 1) % 5 == 0 || $i == count($bookmark) - 1) {
+  if (($i + 1) % 5 == 0 || $i == count($bookmarks) - 1) {
     echo '</div>';
   }
 }

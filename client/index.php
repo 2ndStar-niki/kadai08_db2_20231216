@@ -16,8 +16,8 @@
 <div class="header">
 <img src="../images/kongo.png" alt="KONGO">
   <div>
-  <a href="parchased.php">購入履歴</a>
-  <a href="bookmark.php">お気に入り</a>
+  <a href="parchaseds.php">購入履歴</a>
+  <a href="bookmarks.php">お気に入り</a>
   </div>
 </div>
 

@@ -2,7 +2,7 @@
   session_start();
 
   function connect() {
-    return new PDO("mysql:dbname=shop", "root");
+    return new PDO("mysql:dbname=kadai08_db2_20231216", "root");
   }
 
 function img_tag($code) {

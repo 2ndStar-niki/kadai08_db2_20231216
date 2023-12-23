@@ -1,8 +1,8 @@
 <?php
   require 'funcs.php';
   $pdo = connect();
-  $st = $pdo->query("SELECT * FROM parchased");
-  $parchased = $st->fetchAll();
+  $st = $pdo->query("SELECT * FROM parchaseds");
+  $parchaseds = $st->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +17,14 @@
 <h1>購入履歴</h1>
   <div>
   <a href="index.php">お買い物に戻る</a>
-  <a href="bookmark.php">お気に入り</a>
+  <a href="bookmarks.php">お気に入り</a>
   </div>
 </div>
 
 <table>
 <?php
   $count = 0; // カウンターの初期化
-  foreach ($parchased as $g) {
+  foreach ($parchaseds as $g) {
     if ($count % 2 == 0) {
       // 偶数回目の行の開始
       echo '<tr>';
@@ -34,7 +34,7 @@
       <?php echo img_tag($g['code']) ?>
     </td>
     <td>
-      <p class="parchased"><?php echo $g['name'] ?></p>
+      <p class="goods"><?php echo $g['name'] ?></p>
       <p><?php echo nl2br($g['comment']) ?></p>
     </td>
     <td width="80">
