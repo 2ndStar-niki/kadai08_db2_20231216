@@ -43,7 +43,7 @@ for ($i = 0; $i < count($goods); $i++) {
       </select>
       <input type="hidden" name="code" value="<?php echo $goods[$i]['code'] ?>">
       <input type="submit" name="submit" value="カートへ">
-      <img src="../images/bookmark_no.jpeg" alt="ブックマーク未" height="24px">
+      <img src="../images/bookmark_no.jpeg" alt="ブックマーク未" height="24px" class="bookmark-btn" data-code="<?php echo $goods[$i]['code']; ?>">
     </form>
   </div>
   <?php
